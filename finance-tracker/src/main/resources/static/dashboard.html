@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Finance Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="top-bar">
+        <img src="Finance_Logo_transparent.png" alt="Finance Tracker Logo">
+        <h1>Finance Tracker</h1>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+
+    <div class="dashboard">
+        <!-- Month Selector -->
+        <div class="month-selector">
+            <label>Month:</label>
+            <input type="number" id="month-input" min="1" max="12" placeholder="Month" />
+            <label>Year:</label>
+            <input type="number" id="year-input" placeholder="Year" />
+            <button onclick="loadSummary(
+                document.getElementById('month-input').value,
+                document.getElementById('year-input').value
+            )">Load</button>
+        </div>
+
+        <!-- Summary Cards -->
+        <div class="summary-cards">
+            <div class="card">
+                <h3>Total Income</h3>
+                <div class="amount income" id="total-income">$0.00</div>
+            </div>
+            <div class="card">
+                <h3>Total Expenses</h3>
+                <div class="amount expense" id="total-expenses">$0.00</div>
+            </div>
+            <div class="card">
+                <h3>Net Savings</h3>
+                <div class="amount savings" id="net-savings">$0.00</div>
+            </div>
+        </div>
+
+        <!-- Budget Section -->
+        <div class="section">
+            <div class="section-header">
+                <h2>Budget vs Actual</h2>
+                <button class="add-btn" onclick="openModal('budget-modal')">+ Add Budget</button>
+            </div>
+            <div id="budget-list"></div>
+        </div>
+
+        <!-- Transactions Section -->
+        <div class="section">
+            <div class="section-header">
+                <h2>Recent Transactions</h2>
+                <button class="add-btn" onclick="openModal('transaction-modal')">+ Add Transaction</button>
+            </div>
+            <div id="transaction-list"></div>
+        </div>
+    </div>
+
+    <!-- Add Transaction Modal -->
+    <div id="transaction-modal" class="modal" style="display:none">
+        <div class="modal-content">
+            <h2>Add Transaction</h2>
+            <select id="t-category">
+                <option value="">Select Category</option>
+            </select>
+            <input type="number" id="t-amount" placeholder="Amount" step="0.01" />
+            <input type="text" id="t-description" placeholder="Description" />
+            <input type="date" id="t-date" />
+            <div class="modal-buttons">
+                <button onclick="addTransaction()">Add</button>
+                <button class="cancel-btn" onclick="closeModal('transaction-modal')">Cancel</button>
+            </div>
+            <p id="t-error" class="error"></p>
+        </div>
+    </div>
+
+    <!-- Add Budget Modal -->
+    <div id="budget-modal" class="modal" style="display:none">
+        <div class="modal-content">
+            <h2>Add Budget</h2>
+            <select id="b-category">
+                <option value="">Select Category</option>
+            </select>
+            <input type="number" id="b-amount" placeholder="Budget Limit" step="0.01" />
+            <input type="number" id="b-month" placeholder="Month (1-12)" min="1" max="12" />
+            <input type="number" id="b-year" placeholder="Year" />
+            <div class="modal-buttons">
+                <button onclick="addBudget()">Add</button>
+                <button class="cancel-btn" onclick="closeModal('budget-modal')">Cancel</button>
+            </div>
+            <p id="b-error" class="error"></p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>loadDashboard();</script>
+</body>
+</html>
