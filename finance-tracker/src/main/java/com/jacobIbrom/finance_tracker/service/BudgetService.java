@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.jacobIbrom.finance_tracker.dto.BudgetRequest;
 import com.jacobIbrom.finance_tracker.dto.BudgetResponse;
+
 import com.jacobIbrom.finance_tracker.model.Budget;
 import com.jacobIbrom.finance_tracker.model.Category;
 import com.jacobIbrom.finance_tracker.model.User;
