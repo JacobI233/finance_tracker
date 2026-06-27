@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 
 @Data
 public class BudgetSummary {
+    private Long id;
     private String categoryName;
     private BigDecimal budgetLimit;
     private BigDecimal actualSpending;

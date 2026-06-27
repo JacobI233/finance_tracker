@@ -50,6 +50,7 @@ public class SummaryService {
             BigDecimal remaining = budget.getAmountLimit().subtract(actualSpending);
 
             BudgetSummary summary = new BudgetSummary();
+            summary.setId(budget.getId());
             summary.setCategoryName(budget.getCategory().getName());
             summary.setBudgetLimit(budget.getAmountLimit());
             summary.setActualSpending(actualSpending);
