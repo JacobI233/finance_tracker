@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.jacobIbrom.finance_tracker.dto.CategoryRequest;
 import com.jacobIbrom.finance_tracker.dto.CategoryResponse;
-import com.jacobIbrom.finance_tracker.model.Category;
 import com.jacobIbrom.finance_tracker.service.CategoryService;
 
 import jakarta.validation.Valid;

@@ -8,7 +8,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.jacobIbrom.finance_tracker.config.JwtUtil;
 import com.jacobIbrom.finance_tracker.dto.LoginRequest;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Service
 @RequiredArgsConstructor

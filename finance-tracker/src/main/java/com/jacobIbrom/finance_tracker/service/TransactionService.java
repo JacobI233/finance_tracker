@@ -21,16 +21,16 @@ public class TransactionService {
     private final CategoryRepository categoryRepository;
     private final UserRepository userRepository;
 
-    // Helper to get user by email from JWT
     private User getUser(String email) {
         return userRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("User not found"));
     }
 
+
+    //Create transaction
     public TransactionResponse createTransaction(TransactionRequest request, String email) {
         User user = getUser(email);
 
-        // Find the category and make sure it belongs to this user
         Category category = categoryRepository.findById(request.getCategoryId())
                 .orElseThrow(() -> new RuntimeException("Category not found"));
 
@@ -47,7 +47,7 @@ public class TransactionService {
 
         return TransactionResponse.from(transactionRepository.save(transaction));
     }
-
+    //Get transactions
     public List<TransactionResponse> getUserTransactions(String email) {
         User user = getUser(email);
         return transactionRepository.findByUserIdOrderByDateDesc(user.getId())
@@ -55,7 +55,7 @@ public class TransactionService {
                 .map(TransactionResponse::from)
                 .toList();
     }
-
+    //Delete transaction
     public void deleteTransaction(Long id, String email) {
         User user = getUser(email);
         Transaction transaction = transactionRepository.findById(id)
