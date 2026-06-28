@@ -143,6 +143,7 @@ button:hover {
     width: auto;
     padding: 8px 20px;
     background: #e63946;
+    margin-left: auto;
 }
 
 .logout-btn:hover {
