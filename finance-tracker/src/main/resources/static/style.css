@@ -20,8 +20,8 @@
     height: 170px;
     width: auto;
     background: white;
-    border: 2px solid #0f443b;
-    box-shadow: 0 10px 20px rgba(3, 13, 75, 0.315);
+    border: 5px solid #56c995;
+    box-shadow: 0 10px 20px rgba(0, 1, 7, 0.315);
 }
 
 .top-bar h1 {
@@ -136,7 +136,7 @@ button:hover {
 }
 
 .dashboard-header h1 {
-    color: #2d6a4f;
+    color: #56c995;
 }
 
 .logout-btn {
@@ -176,7 +176,7 @@ button:hover {
     font-weight: 700;
 }
 
-.income { color: #2d6a4f; }
+.income { color: #56c995; }
 .expense { color: #e63946; }
 .savings { color: #457b9d; }
 
@@ -244,6 +244,10 @@ button:hover {
     gap: 10px;
     margin-bottom: 20px;
     align-items: center;
+    background: #225873;
+    padding: 10px;
+    color: white;
+    box-shadow: 0 10px 20px rgba(3, 13, 75, 0.315);
 }
 
 .month-selector input {
@@ -254,11 +258,12 @@ button:hover {
 .month-selector button {
     width: auto;
     padding: 10px 20px;
+    background: #56c995;
 }
 .month-selector label {
-    color: #225873;
+    color: #ffffff;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 20px;
 }
 .section-header {
     display: flex;
@@ -278,7 +283,7 @@ button:hover {
 .add-btn {
     width: auto;
     padding: 8px 16px;
-    background: #225873;
+    background: #56c995;
     font-size: 13px;
 }
 
