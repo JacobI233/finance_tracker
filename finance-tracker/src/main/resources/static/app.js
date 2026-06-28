@@ -94,6 +94,8 @@ async function loadDashboard() {
     document.getElementById('year-input').value = year;
     await loadSummary(month, year);
     await loadTransactions();
+    await loadUserName();
+    await loadCategories();
 }
 
 async function loadSummary(month, year) {
@@ -138,6 +140,28 @@ async function loadSummary(month, year) {
         console.error('Error loading summary', e);
     }
 }
+async function loadCategories() {
+    try {
+        const res = await fetch(`${API}/categories`, { headers: authHeaders() 
+
+        });
+        const categories = await res.json();
+        const container = document.getElementById('category-list');
+        container.innerHTML = '';
+       
+        
+        for (const c of categories) {
+            container.innerHTML += `
+                <div class="category-item">
+                    <span>${c.name} (${c.type})</span>
+                    <button class="delete-btn" onclick="deleteCategory(${c.id})">Delete</button>
+                </div>
+            `;
+        }
+    } catch (e) {
+        console.error('Error loading categories', e);
+    }
+}
 
 async function loadTransactions() {
     try {
@@ -174,6 +198,16 @@ async function loadTransactions() {
         console.error('Error loading transactions', e);
     }
 }
+async function loadUserName() {
+    try {
+        const res = await fetch(`${API}/user`, { headers: authHeaders() });
+        if (res.status === 401) { logout(); return; }
+        const user = await res.json();
+        document.getElementById('user-name').textContent = user.name;
+    } catch (e) {
+        console.error('Error loading user info', e);
+    }
+}
 
 async function addTransaction() {
     const categoryId = document.getElementById('t-category').value;
@@ -203,6 +237,31 @@ async function addTransaction() {
         }
     } catch (e) {
         document.getElementById('t-error').textContent = 'Error connecting to server.';
+    }
+}
+async function addCategory() {
+    const name = document.getElementById('c-name').value;
+    const type = document.getElementById('c-type').value;
+
+    if (!name || !type) {
+        document.getElementById('c-error').textContent = 'Please fill in all required fields.';
+        return;
+    }
+
+    try {
+        const res = await fetch(`${API}/categories`, {
+            method: 'POST',
+            headers: authHeaders(),
+            body: JSON.stringify({ name, type })
+        });
+        if (res.ok) {
+            closeModal('category-modal');
+            await loadCategories();
+        } else {
+            document.getElementById('c-error').textContent = 'Failed to add category.';
+        }
+    } catch (e) {
+        document.getElementById('c-error').textContent = 'Error connecting to server.';
     }
 }
 
@@ -247,6 +306,17 @@ async function deleteTransaction(id) {
     const year = document.getElementById('year-input').value;
     await loadSummary(month, year);
 }
+async function deleteCategory(id) {
+    if (!confirm('Delete this category?')) return;
+    await fetch(`${API}/categories/${id}`, {
+        method: 'DELETE',
+        headers: authHeaders()
+    });
+    await loadCategories();
+    const month = document.getElementById('month-input').value;
+    const year = document.getElementById('year-input').value;
+    await loadSummary(month, year);
+}   
 
 async function deleteBudget(id) {
     if (!confirm('Delete this budget?')) return;

@@ -11,7 +11,9 @@
     padding: 0 24px;
     gap: 12px;
     height: 200px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 10px 20px rgba(3, 13, 75, 0.315);
 }
 
 .top-bar img {
@@ -19,7 +21,7 @@
     width: auto;
     background: white;
     border: 5px solid #0f443b;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 20px rgba(3, 13, 75, 0.315);
 }
 
 .top-bar h1 {
@@ -29,7 +31,19 @@
     color: white;
     padding: 20px;
 }
+.user-info {
+    margin: 20px auto;
+    text-align: center;
+    font-size: 18px;
+    color: #0f443b;
+    padding: 1px;
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(3, 13, 75, 0.315);
+    margin-bottom: 20px;
 
+}
 
 body {
     font-family: Helvetica, Arial, sans-serif;
@@ -43,7 +57,7 @@ body {
     background: white;
     padding: 40px;
     border-radius: 12px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 20px rgba(3, 13, 75, 0.315);
     text-align: center;
 }
 
@@ -146,7 +160,7 @@ button:hover {
     background: white;
     padding: 24px;
     border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    box-shadow: 0 10px 20px rgba(3, 13, 75, 0.315);
     text-align: center;
 }
 
@@ -170,7 +184,7 @@ button:hover {
     background: white;
     padding: 24px;
     border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    box-shadow: 0 10px 20px rgba(3, 13, 75, 0.315);
     margin-bottom: 20px;
 }
 
@@ -290,7 +304,7 @@ button:hover {
     padding: 32px;
     border-radius: 12px;
     width: 400px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 20px rgba(3, 13, 75, 0.315);
 }
 
 .modal-content h2 {

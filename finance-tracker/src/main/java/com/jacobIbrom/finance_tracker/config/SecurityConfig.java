@@ -51,6 +51,9 @@ public class SecurityConfig {
                 .requestMatchers("/*.html").permitAll()
                 .requestMatchers("/*.js").permitAll()
                 .requestMatchers("/*.css").permitAll()
+                .requestMatchers("/*.png").permitAll()
+                .requestMatchers("/*.jpg").permitAll()
+                .requestMatchers("/*.ico").permitAll()
                 .anyRequest().authenticated()
             )
             .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);

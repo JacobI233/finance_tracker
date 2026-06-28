@@ -12,9 +12,11 @@
         <h1>Finance Tracker</h1>
         <button class="logout-btn" onclick="logout()">Logout</button>
     </div>
+    <div class="user-info">
+        <span>Welcome, <strong id="user-name"></strong></span>
 
     <div class="dashboard">
-        <!-- Month Selector -->
+
         <div class="month-selector">
             <label>Month:</label>
             <input type="number" id="month-input" min="1" max="12" placeholder="Month" />
@@ -26,7 +28,7 @@
             )">Load</button>
         </div>
 
-        <!-- Summary Cards -->
+  
         <div class="summary-cards">
             <div class="card">
                 <h3>Total Income</h3>
@@ -42,7 +44,7 @@
             </div>
         </div>
 
-        <!-- Budget Section -->
+    
         <div class="section">
             <div class="section-header">
                 <h2>Budget vs Actual</h2>
@@ -51,7 +53,15 @@
             <div id="budget-list"></div>
         </div>
 
-        <!-- Transactions Section -->
+    
+        <div class="section">
+            <div class="section-header">
+                <h2>Categories</h2>
+                <button class="add-btn" onclick="openModal('category-modal')">+ Create Category</button>
+            </div>
+            <div id="category-list"></div>
+        </div>
+
         <div class="section">
             <div class="section-header">
                 <h2>Recent Transactions</h2>
@@ -61,7 +71,6 @@
         </div>
     </div>
 
-    <!-- Add Transaction Modal -->
     <div id="transaction-modal" class="modal" style="display:none">
         <div class="modal-content">
             <h2>Add Transaction</h2>
@@ -79,7 +88,22 @@
         </div>
     </div>
 
-    <!-- Add Budget Modal -->
+    <div id="category-modal" class="modal" style="display:none">
+        <div class="modal-content">
+            <h2>Create Category</h2>
+            <input type="text" id="c-name" placeholder="Category Name" />
+            <select id="c-type">
+                <option value="">Select Type</option>
+                <option value="INCOME">Income</option>
+                <option value="EXPENSE">Expense</option>
+            </select>
+            <div class="modal-buttons">
+                <button onclick="addCategory()">Add</button>
+                <button class="cancel-btn" onclick="closeModal('category-modal')">Cancel</button>
+            </div>
+            <p id="c-error" class="error"></p>
+        </div>
+  
     <div id="budget-modal" class="modal" style="display:none">
         <div class="modal-content">
             <h2>Add Budget</h2>

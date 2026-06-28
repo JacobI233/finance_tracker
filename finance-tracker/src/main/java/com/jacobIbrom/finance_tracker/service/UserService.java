@@ -25,6 +25,10 @@ public class UserService {
         }
         return jwtUtil.generateToken(user.getEmail());
     }
+    public User getCurrentUser(String email) {
+        return userRepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+    }
 
     public User register(RegisterRequest request) {
         if (userRepository.existsByEmail(request.getEmail())) {
