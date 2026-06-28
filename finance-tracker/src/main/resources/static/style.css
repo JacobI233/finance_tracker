@@ -11,8 +11,8 @@
     padding: 0 24px;
     gap: 12px;
     height: 200px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
     box-shadow: 0 10px 20px rgba(3, 13, 75, 0.315);
 }
 
@@ -20,7 +20,7 @@
     height: 170px;
     width: auto;
     background: white;
-    border: 5px solid #0f443b;
+    border: 2px solid #0f443b;
     box-shadow: 0 10px 20px rgba(3, 13, 75, 0.315);
 }
 
@@ -39,7 +39,7 @@
     padding: 1px;
     background: white;
     padding: 24px;
-    border-radius: 12px;
+    border-radius: 2px;
     box-shadow: 0 10px 20px rgba(3, 13, 75, 0.315);
     margin-bottom: 20px;
 
@@ -56,7 +56,7 @@ body {
     margin: 50px auto;
     background: white;
     padding: 40px;
-    border-radius: 12px;
+    border-radius: 2px;
     box-shadow: 0 10px 20px rgba(3, 13, 75, 0.315);
     text-align: center;
 }
@@ -78,13 +78,13 @@ body {
     flex: 1;
     padding: 10px;
     border: none;
-    background: white;
+    background: #225873;
     cursor: pointer;
     font-size: 14px;
 }
 
 .tab-btn.active {
-    background: #225873;
+    background: #052b3d;
     color: white;
 }
 
@@ -93,7 +93,7 @@ input {
     padding: 12px;
     margin-bottom: 12px;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 2px;
     font-size: 14px;
 }
 
@@ -103,14 +103,14 @@ button {
     background: #225873;
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 2px;
     cursor: pointer;
     font-size: 15px;
     font-weight: 600;
 }
 
 button:hover {
-    background: #225873;
+    background: #052b3d;
 }
 
 .error {
@@ -159,7 +159,7 @@ button:hover {
 .card {
     background: white;
     padding: 24px;
-    border-radius: 12px;
+    border-radius: 2px;
     box-shadow: 0 10px 20px rgba(3, 13, 75, 0.315);
     text-align: center;
 }
@@ -183,7 +183,7 @@ button:hover {
 .section {
     background: white;
     padding: 24px;
-    border-radius: 12px;
+    border-radius: 2px;
     box-shadow: 0 10px 20px rgba(3, 13, 75, 0.315);
     margin-bottom: 20px;
 }
@@ -208,13 +208,13 @@ button:hover {
 .progress-bar {
     height: 8px;
     background: #eee;
-    border-radius: 4px;
+    border-radius: 2px;
     overflow: hidden;
 }
 
 .progress-fill {
     height: 100%;
-    border-radius: 4px;
+    border-radius: 2px;
     background: #2d6a4f;
     transition: width 0.3s ease;
 }
@@ -302,7 +302,7 @@ button:hover {
 .modal-content {
     background: white;
     padding: 32px;
-    border-radius: 12px;
+    border-radius: 2px;
     width: 400px;
     box-shadow: 0 10px 20px rgba(3, 13, 75, 0.315);
 }
@@ -318,7 +318,7 @@ button:hover {
     padding: 12px;
     margin-bottom: 12px;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 2px;
     font-size: 14px;
 }
 
@@ -345,9 +345,19 @@ button:hover {
     padding: 4px 10px;
     background: #e63946;
     font-size: 12px;
-    border-radius: 6px;
+    border-radius: 2px;
+    border: 2px solid #360d11;
 }
 
 .delete-btn:hover {
     background: #c1121f;
+}
+
+.category-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 14px;
 }
